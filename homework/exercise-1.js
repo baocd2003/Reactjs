@@ -71,14 +71,14 @@ const traineeIterator = [
 //  rank: 'F'
 //}
 // *YOUR CODE HERRE *
-let expectedTraineeArray = traineeIterator.map((trainee) => {
-  return {
-      newId : trainee.className,
-      fullName : `${trainee.firstName} ${trainee.lastName}`,
-      rank : trainee.grade
-  }
-})
-console.log(expectedTraineeArray)
+// let expectedTraineeArray = traineeIterator.map((trainee) => {
+//   return {
+//       newId : trainee.className,
+//       fullName : `${trainee.firstName} ${trainee.lastName}`,
+//       rank : trainee.grade
+//   }
+// })
+// console.log(expectedTraineeArray)
 
 //4, Sử dụng map(), hãy tạo ra 1 mảng mới với tên gọi newTraineeArray,
 //trong đó các props của từng phần tử được đổi như sau:
@@ -93,36 +93,87 @@ console.log(expectedTraineeArray)
 // -> nếu đạt F grade trả về: 'Disbanded'
 // => tip: tạo ra 1 hàm, với đầu vào là grade, trả về giá trị tương ứng, không xét điều kiện trong forEach() body
 // *YOUR CODE HERRE *
-
-
+// function newGrade (grade) {
+//   switch(grade){
+//     case 'A':
+//     return 'Excellent';
+//     case 'B':
+//     return  'Good';
+//     case 'C':
+//     return  'Medium'; 
+//     case 'D':
+//     return 'Weak';
+//     case 'E':
+//     return 'Poor';
+//     case 'F':
+//     return  'Disbanded';
+//   }
+// }
+// let newTraineeArray = traineeIterator.map((trainee) => {
+//   return {
+//     Id  : trainee.id,
+//     codename : `${trainee.className}/${trainee.firstName} ${trainee.lastName}`,
+//     classification : newGrade(trainee.grade)
+//   }
+//   }
+// )
+// console.log(newTraineeArray);
 
 
 //5. Lọc ra các trainee với grade dưới B
 // *YOUR CODE HERRE *
-
-
+// let checkGrade = traineeIterator.filter((trainee) => {
+//   return trainee.grade !== 'A' && trainee.grade !== 'B';
+// })
+// console.log(checkGrade);
 
 //6. Lọc ra các trainee với grade trên C, sau đố xét điều kiện sau:
 // -> nếu số các trainee với grade trên C >= 50% sĩ số lớp, alert ra "Effective training!"
 // -> nếu số các trainee với grade trên C < 30% sĩ số lớp, alert ra "Average training!"
 // -> nếu số các trainee với grade trên C = 0, alert ra "Failed training!"
 // *YOUR CODE HERRE *
-
-
+// let count = 0;
+// let testGrade  = traineeIterator.forEach((trainee) => {
+//   if(trainee.grade == 'A' || trainee.grade == 'B' || trainee.grade == 'C'){
+//     count++;
+//   }
+//   }
+// )
+// if(count >= traineeIterator.length * 50/100){
+//     alert('Effective training')
+// }else if(count < traineeIterator.length * 30/100){
+//     alert("Average training!") 
+// }else{
+//     alert('Failed Training');
+// }
 
 //7. Tìm ra thành viên có grade A, alert ra tên đầy đủ của thành viên đó
 // *YOUR CODE HERRE *
-
-
+// let findA = traineeIterator.filter((trainee) => {
+//   if(trainee.grade == 'A') {
+//     let fullName = `${trainee.firstName} ${trainee.lastName}`;
+//    alert(fullName) 
+//   };
+// })
+// console.log(findA)
 
 //8. Tìm ra thành viên có grade F, alert ra tên đầy đủ của thành viên đó
 // *YOUR CODE HERRE *
-
+// let findF = traineeIterator.filter((trainee) => {
+//   if(trainee.grade == 'F') {
+//     let fullName = `${trainee.firstName} ${trainee.lastName}`;
+//    alert(fullName) 
+//   };
+// })
+// console.log(findF)
 
 
 //9. Sử dụng reduce, hãy tạo ra 1 string cấu thành từ điểm số của các thành viên trong mảng đã cho
 // *YOUR CODE HERRE *
-
+let string = traineeIterator.reduce((trainee,output) => {
+    return trainee + output.grade ;
+},"")
+console.log(string);
 
 
 //10. (optional) Sử dụng reduce, hãy tạo ra 1 hàm tính được giai thừa của 1 số đầu vào. Ex: input 6 => 1*2*3*4*5*6 = 720
